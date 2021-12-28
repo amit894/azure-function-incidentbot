@@ -1,19 +1,11 @@
 package org.example.incidentbot.model;
 
-import com.atlassian.jira.rest.client.api.IssueRestClient;
-import com.atlassian.jira.rest.client.api.JiraRestClient;
-import com.atlassian.jira.rest.client.api.domain.BasicVotes;
-import com.atlassian.jira.rest.client.api.domain.Comment;
-import com.atlassian.jira.rest.client.api.domain.Issue;
-import com.atlassian.jira.rest.client.api.domain.input.IssueInput;
-import com.atlassian.jira.rest.client.api.domain.input.IssueInputBuilder;
-import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientFactory;
 
 import java.net.URI;
 
 public class JiraModel {
 
-    public JiraModel(String project, String userName, URI server, String description, String assignee, String issueType, String summary, String password) {
+    public JiraModel(String project, String userName, URI server, String description, String assignee, Long issueType, String summary, String password) {
         this.issueType = issueType;
         this.assignee = assignee;
         this.summary = summary;
@@ -24,17 +16,77 @@ public class JiraModel {
         this.password=password;
     }
 
-    private JiraRestClient getJiraRestClient() {
-        return new AsynchronousJiraRestClientFactory()
-                .createWithBasicHttpAuthentication(this.server, this.userName, this.password);
-    }
 
     private String project;
     private String userName;
     private String description;
-    private String issueType;
+    private Long issueType;
     private String assignee;
     private String summary;
     private URI server;
     private String password;
+
+    public String getProject() {
+        return project;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getIssueType() {
+        return issueType;
+    }
+
+    public void setIssueType(Long issueType) {
+        this.issueType = issueType;
+    }
+
+    public String getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(String assignee) {
+        this.assignee = assignee;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public URI getServer() {
+        return server;
+    }
+
+    public void setServer(URI server) {
+        this.server = server;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

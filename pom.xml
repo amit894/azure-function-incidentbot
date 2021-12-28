@@ -14,10 +14,15 @@
             <id>atlassian-public</id>
             <url>https://packages.atlassian.com/maven/repository/public</url>
         </repository>
+        <repository>
+            <id>repo-maven</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
     </repositories>
 
     <properties>
         <jira-rest-java-client-core.version>4.0.0</jira-rest-java-client-core.version>
+        <slf4j.version>1.7.9</slf4j.version>
         <atlassian.fugue.version>2.6.1</atlassian.fugue.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
@@ -42,6 +47,16 @@
             <groupId>com.atlassian.fugue</groupId>
             <artifactId>fugue</artifactId>
             <version>${atlassian.fugue.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <!-- Test -->
