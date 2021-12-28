@@ -8,6 +8,8 @@ import com.microsoft.azure.functions.HttpStatus;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
+
+import java.net.URISyntaxException;
 import java.util.*;
 import com.microsoft.azure.functions.annotation.*;
 import com.microsoft.azure.functions.*;
@@ -28,7 +30,7 @@ public class HttpTriggerFunction {
     @FunctionName("IncidentBot")
     public HttpResponseMessage run(
             @HttpTrigger(name = "req", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
+            final ExecutionContext context) throws URISyntaxException {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
         JiraService jiraService = new JiraService();

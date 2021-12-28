@@ -9,7 +9,16 @@
 
     <name>Azure Java Functions</name>
 
+    <repositories>
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://packages.atlassian.com/maven/repository/public</url>
+        </repository>
+    </repositories>
+
     <properties>
+        <jira-rest-java-client-core.version>4.0.0</jira-rest-java-client-core.version>
+        <atlassian.fugue.version>2.6.1</atlassian.fugue.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <azure.functions.maven.plugin.version>1.14.0</azure.functions.maven.plugin.version>
@@ -22,6 +31,17 @@
             <groupId>com.microsoft.azure.functions</groupId>
             <artifactId>azure-functions-java-library</artifactId>
             <version>${azure.functions.java.library.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-core</artifactId>
+            <version>${jira-rest-java-client-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.fugue</groupId>
+            <artifactId>fugue</artifactId>
+            <version>${atlassian.fugue.version}</version>
         </dependency>
 
         <!-- Test -->
