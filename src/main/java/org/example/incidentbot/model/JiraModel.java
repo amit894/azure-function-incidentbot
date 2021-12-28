@@ -5,7 +5,7 @@ import java.net.URI;
 
 public class JiraModel {
 
-    public JiraModel(String project, String userName, URI server, String description, String assignee, Long issueType, String summary, String password) {
+    public JiraModel(String project, String userName, URI server, String description, String assignee, String issueType, String summary, String password) {
         this.issueType = issueType;
         this.assignee = assignee;
         this.summary = summary;
@@ -20,7 +20,7 @@ public class JiraModel {
     private String project;
     private String userName;
     private String description;
-    private Long issueType;
+    private String issueType;
     private String assignee;
     private String summary;
     private URI server;
@@ -50,11 +50,11 @@ public class JiraModel {
         this.description = description;
     }
 
-    public Long getIssueType() {
+    public String getIssueType() {
         return issueType;
     }
 
-    public void setIssueType(Long issueType) {
+    public void setIssueType(String issueType) {
         this.issueType = issueType;
     }
 
