@@ -17,7 +17,7 @@ public class JiraService {
         String myUrl = "https://amit894.atlassian.net/";
         URI uri = new URI(myUrl);
         String password=System.getProperty("JIRA_PASSWORD");
-        JiraModel J1 = new JiraModel("MB", "amit.894@gmail.com", uri,"Yes this is JIRA", "amitraj", "1001","Third Issue", password );
+        JiraModel J1 = new JiraModel("MB", "amit.894@gmail.com", uri,"404 Resource not found", "amitraj", "10001","JIRA Issue from Azure Alert", password );
         final AsynchronousJiraRestClientFactory factory = new AsynchronousJiraRestClientFactory();
         final JiraRestClient restClient = factory.createWithBasicHttpAuthentication( J1.getServer(), J1.getUserName(), J1.getPassword());
         IssueInputBuilder builder = new IssueInputBuilder();
@@ -29,8 +29,8 @@ public class JiraService {
 
         try {
             final BasicIssue issue=restClient.getIssueClient().createIssue(issueInput).claim();
-            //return  ("Life Happened");
-            return String.valueOf((issue.getId()));
+            String response = "JIRA ID created"+ String.valueOf((issue.getId()));
+            return response;
         } catch (Exception e) {
             return (e.getMessage());
         }
